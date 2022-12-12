@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./db/sqlite"
+}
+
+model Ooblet {
+  id Int @id @default(autoincrement())
+  name String @unique
+  desc String
+  regions Region[] // ooblets can have multiple regions, all regions have multiple ooblets
+  itemType Item? // ooblets currently have one type of item per ooblet type and each item type is unique to that ooblet type
+  itemAmount Int // number is contained between 1 and 3
+  moves Move[] // ooblets can have multiple moves, but moves are unique to each ooblet type
+}
+
+model Region {
+  id Int @id @default(autoincrement())
+  name String @unique
+  ooblets Ooblet[] // ooblets can have multiple regions, all regions have multiple ooblets
+}
+
+model Item {
+  id Int @id @default(autoincrement())
+  name String @unique
+  ooblet Ooblet @relation(fields: [oobletID], references: [id])
+  oobletID Int @unique
+}
+
+model Move {
+  id Int @id @default(autoincrement())
+  name String @unique
+  desc String
+  cost Int
+  ooblet Ooblet @relation(fields: [oobletID], references: [id])
+  oobletID Int
+}
