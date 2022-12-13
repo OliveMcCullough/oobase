@@ -16,7 +16,7 @@ model Ooblet {
   desc String
   regions Region[] // ooblets can have multiple regions, all regions have multiple ooblets
   itemType Item? // ooblets currently have one type of item per ooblet type and each item type is unique to that ooblet type
-  itemAmount Int // number is contained between 1 and 3
+  itemAmount Int? // number is contained between 1 and 3
   moves Move[] // ooblets can have multiple moves, but moves are unique to each ooblet type
 }
 
