@@ -1,26 +1,81 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  background-color: #eee;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+@layer components {
+  .form-label {
+    @apply block
+    text-gray-700 text-sm font-bold mb-2
   }
-  body {
-    color: white;
-    background: black;
+
+  .form-input {
+    @apply shadow appearance-none 
+    border rounded 
+    w-full
+    py-2 px-3
+    mb-2
+    text-gray-700 
+    leading-tight
+    outline-none
+  }
+
+  .form-input:focus {
+    @apply form-input-focus
+  }
+
+  .form-input-focus {
+    @apply border
+    border-blue-600
+  }
+
+  .react-select-menu {
+    @apply border rounded bg-white
+  }
+
+  .react-select-no-option {
+    @apply p-[12px]
+  }
+
+  .react-select-option {
+    @apply p-[12px]
+  }
+
+  .react-select-option-selected {
+    @apply bg-blue-100
+  }
+
+  .react-select-value {
+    @apply mx-[2px] bg-gray-100 rounded text-[85%]
+  }
+
+  .react-select-value-label {
+    @apply p-[2px] pr-[3px] pl-[6px] rounded-l
+  }
+
+  .react-select-value-remove {
+    @apply px-[4px] hover:bg-red-200 rounded
+  }
+
+  .form-fieldset {
+    @apply mb-3 mt-1
+    border-y
+  }
+
+  .form-fieldset-legend {
+    @apply pl-1
+    font-medium
+  }
+
+  .form-button {
+    @apply shadow
+    bg-purple-500 hover:bg-purple-400  
+    text-white 
+    font-bold 
+    py-2 px-4 
+    rounded
   }
 }
