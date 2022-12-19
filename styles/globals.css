@@ -2,8 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
-  background-color: #eee;
+html {
+  background: radial-gradient(circle at center, #2e034f 0%, #270243 78%, #140220 100%);
+  @apply h-screen w-screen min-h-[800px]
+  m-0 p-0
+}
+
+@font-face {
+  font-family: 'Franxurter Totally';
+  src: url('/fonts/FranxurterTotallyMedium.woff2') format('woff2'),
+      url('/fonts/FranxurterTotallyMedium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Franxurter Totally Fat';
+  src: url('/fonts/FranxurterTotallyFat.woff2') format('woff2'),
+      url('/fonts/FranxurterTotallyFat.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @layer components {
@@ -77,5 +98,49 @@ html, body {
     font-bold 
     py-2 px-4 
     rounded
+  }
+
+  .ooblets-title {
+    text-shadow: 0px 2px 0px #f2e5ff, 0px 7px 0px #8150ff;
+    @apply text-7xl uppercase text-center mt-8 mb-6 animate-seesaw text-[#daaaff]
+  }
+
+  .ooblets-subtitle {
+    @apply text-2xl text-center uppercase text-[#ff4e80]
+  }
+
+  .ooblets-style {
+    @apply font-franxurter-totally-fat
+  }
+
+  .ooblet-list {
+    @apply flex flex-row my-5 flex-wrap h-[600px] overflow-auto
+  }
+
+  .container {
+    @apply m-auto w-5/6
+  }
+
+  .ooblet-card {
+    @apply w-60 min-h-[60] m-3 flex flex-col
+  }
+
+  .ooblet-card-link {
+    @apply w-full h-full flex flex-col
+  }
+
+  .ooblet-card-display-container {
+    @apply rounded-full 
+    w-40 h-40
+    mx-auto my-3
+    bg-[#410071]
+  }
+
+  .ooblet-tag {
+    @apply text-center block m-auto text-xl uppercase font-franxurter-totally w-fit px-4 py-1 my-1 rounded-full bg-[#352c89] text-white
+  }
+
+  .common-ooblet-name-tag {
+    @apply text-[#fc7266]
   }
 }
