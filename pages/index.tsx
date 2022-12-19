@@ -1,13 +1,19 @@
 import { PrismaClient } from '@prisma/client';
 import { GetStaticProps } from 'next';
-import Head from 'next/head'
-import Image from 'next/image'
 import Layout from '../components/layout';
-import styles from '../styles/Home.module.css'
 
 export const getStaticProps: GetStaticProps = async () => {
   const prisma = new PrismaClient()
-  const ooblets = await prisma.ooblet.findMany();
+  const ooblets = await prisma.ooblet.findMany({select: {
+    id: true,
+    name: true,
+    desc: true,
+    regions: {
+      select: {
+          name: true,
+      }
+    }
+  }});
 
   return {
     props: {
@@ -16,22 +22,43 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 }
 
-export default function Home({ 
+export default function Home({
   ooblets
 }:{ 
   ooblets: [{
     id: number,
     name: String,
-    desc: String
+    desc: String,
+    regions: [{
+      id: number,
+      name: String
+    }]
 }] 
 }) {
   return (
-    <Layout>
-      <div>
-        <h1 className="text-3xl font-bold underline"> Here are some Ooblets </h1>
+    <div>
+      <div> </div>
+      <div className="ooblets-style container">
+        <h1 className="ooblets-title"> Welcome to Oobase! </h1>
+        <h2 className="ooblets-subtitle"> These ooblets can be found in Oob:</h2>
         { ooblets.length > 0 && 
-        <ul> {ooblets.map((ooblet) => (<li key={ooblet.id}> {ooblet.name} </li>))} </ul>}
+        <ul className="ooblet-list"> 
+          {ooblets.map((ooblet) => (
+            <li key={ooblet.id} className="ooblet-card">
+              <a>
+                <div className="ooblet-card-display-container"> </div>
+                <span className="ooblet-tag common-ooblet-name-tag"> {ooblet.name}  </span>
+              </a>
+              {ooblet.regions.length > 0 &&
+                <a>
+                  {ooblet.regions.map((region) => (
+                    <span key={region.id} className="ooblet-tag"> {region.name} </span>
+                  ))}
+                </a>
+              }
+            </li>))} 
+        </ul>}
       </div>
-    </Layout>
+    </div>
   )
 }
