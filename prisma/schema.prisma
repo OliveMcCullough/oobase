@@ -38,6 +38,7 @@ model Move {
   name String @unique
   desc String
   cost Int
+  level Int
   ooblet Ooblet @relation(fields: [oobletID], references: [id])
   oobletID Int
 }
