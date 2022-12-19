@@ -2,7 +2,6 @@ import Layout from "../../../components/layout";
 import Creatable, { useCreatable } from 'react-select/creatable';
 import { GetServerSideProps } from "next";
 import { PrismaClient } from "@prisma/client";
-import { dropdownIndicatorCSS } from "react-select/dist/declarations/src/components/indicators";
 
 
 type OptionType = {
@@ -71,11 +70,11 @@ export default function AddOobletPage ({regionOptions} : {regionOptions:OptionTy
                     <input type="text" id="itemType" name="itemType" className="form-input" required/>
 
                     <label htmlFor="itemAmount" className="form-label"> Item amount: </label> 
-                    <input type="number" id="itemAmount" name="itemAmount" className="form-input" min="1" max="3" required/>
+                    <input type="number" id="itemAmount" name="itemAmount" className="form-input" min="1" max="4" required/>
 
                     {[...Array(3)].map((x, i) =>
                         <fieldset key={i} className="form-fieldset"> 
-                            <legend className="form-fieldset-legend"> Move n°{i+1}</legend>
+                            <legend className="form-fieldset-legend"> Move n°{i+1} (level {(i+1)/2*(i+2)})</legend>
                             <label htmlFor={`moveName${i}`} className="form-label">Name:</label>
                             <input type="text" id={`moveName${i}`} name={`moveName${i}`} className="form-input" required/>
 
