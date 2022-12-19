@@ -65,17 +65,20 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse) {
                   {
                     name: body.moveName0, 
                     desc: body.moveDescription0,
-                    cost: parseInt(body.moveCost0)
+                    cost: parseInt(body.moveCost0),
+                    level: 1,
                   },
                   {
                     name: body.moveName1, 
                     desc: body.moveDescription1,
-                    cost: parseInt(body.moveCost1)
+                    cost: parseInt(body.moveCost1),
+                    level: 3,
                   },
                   {
                     name: body.moveName2, 
                     desc: body.moveDescription2,
-                    cost: parseInt(body.moveCost2)
+                    cost: parseInt(body.moveCost2),
+                    level: 6,
                   }
                 ]
               }
