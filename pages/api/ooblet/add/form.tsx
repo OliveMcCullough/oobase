@@ -20,8 +20,8 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse) {
             return res.status(400).json({ data: 'Item amount has not been provided correctly'})
         }
         // item amount is above 3 or under 1
-        if(parseFloat(body.itemAmount) < 1 || parseFloat(body.itemAmount) > 3) {
-            return res.status(400).json({ data: 'Item amount must be between 1 and 3'})
+        if(parseFloat(body.itemAmount) < 1 || parseFloat(body.itemAmount) > 4) {
+            return res.status(400).json({ data: 'Item amount must be between 1 and 4'})
         }
         // there is not at least one region
         if(body.regions.length === 0 && typeof body.regions !== "string") {
