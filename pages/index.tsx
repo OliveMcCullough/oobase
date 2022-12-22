@@ -27,11 +27,11 @@ export default function Home({
 }:{ 
   ooblets: [{
     id: number,
-    name: String,
-    desc: String,
+    name: string,
+    desc: string,
     regions: [{
       id: number,
-      name: String
+      name: string
     }]
 }] 
 }) {
@@ -46,7 +46,7 @@ export default function Home({
           {ooblets.map((ooblet) => (
             <li key={ooblet.id} className="ooblet-card">
               <a>
-                <div className="ooblet-card-display-container"> </div>
+                <div className="ooblet-card-display-container"> <img className="ooblet-card-display-image" alt={ooblet.name} src={`/images/ooblets/${ooblet.name}_common.png`}/>  </div>
                 <span className="ooblet-tag common-ooblet-name-tag"> {ooblet.name}  </span>
               </a>
               {ooblet.regions.length > 0 &&
