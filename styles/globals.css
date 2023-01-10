@@ -142,7 +142,7 @@ html, body {
   }
 
   .ooblet-list {
-    @apply flex flex-row my-5 flex-wrap h-[520px] overflow-auto pt-6 pb-6 justify-center
+    @apply flex flex-row my-5 flex-wrap h-[520px] overflow-auto pt-6 pb-6
   }
 
   .container {
@@ -171,7 +171,7 @@ html, body {
   }
 
   .ooblet-card-display-image {
-    @apply absolute bottom-0 scale-75 pointer-events-none
+    @apply pointer-events-none w-3/4 m-[12.5%] absolute bottom-0
   }
 
   .ooblet-tag {
