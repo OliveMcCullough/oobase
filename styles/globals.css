@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 html, body {
-  @apply h-screen w-screen min-h-[800px]
+  @apply h-screen w-screen
   m-0 p-0
 }
 
@@ -142,12 +142,32 @@ html, body {
   }
 
   .ooblet-list {
-    scrollbar-width: none;
-    @apply flex flex-row my-5 flex-wrap h-[520px] overflow-auto pt-6 pb-6
+    scrollbar-color: #cfa8ff #250d37;
+    @apply flex flex-row my-5 flex-wrap overflow-auto pt-6 pb-6 min-h-[200px]
   }
 
+  /* Let's get this party started */
   .ooblet-list::-webkit-scrollbar {
-    display: none;
+      width: 20px;
+  }
+   
+  /* Track */
+  .ooblet-list::-webkit-scrollbar-track {
+      background-color:#250d37;
+      -webkit-border-radius: 8px;
+      border-radius: 8px;
+  }
+   
+  /* Handle */
+  .ooblet-list::-webkit-scrollbar-thumb {
+      -webkit-border-radius: 8px;
+      border-radius: 8px;
+      background: #cfa8ff; 
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+  }
+
+  .ooblet-list::-webkit-scrollbar-thumb:window-inactive {
+    background: #cfa8ff; 
   }
 
   .container {
@@ -183,7 +203,7 @@ html, body {
     @apply text-center block m-auto text-xl uppercase font-franxurter-totally w-fit px-4 py-1 my-1 rounded-full bg-[#352c89] text-white
   }
 
-  .common-ooblet-name-tag {
-    @apply text-[#fc7266]
+  .simplebar-scrollbar::before {
+    background-color: red !important;
   }
 }

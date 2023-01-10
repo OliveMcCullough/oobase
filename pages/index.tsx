@@ -38,7 +38,7 @@ export default function Home({
   return (
     <Layout>
       <div>
-        <div className="ooblets-style container">
+        <div className="ooblets-style container flex flex-col h-screen">
           <div>
             <h1 className="ooblets-title"> Welcome to Oobase! </h1>
             <h2 className="ooblets-subtitle"> These ooblets can be found in Oob:</h2>
