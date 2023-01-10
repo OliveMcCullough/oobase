@@ -71,11 +71,13 @@ export default async function handler(req:NextApiRequest, res:NextApiResponse) {
                 name: body.name,
                 desc: body.description,
                 itemAmount: parseInt(body.itemAmount),
-                regions: { connectOrCreate: newRegions.map((region:string) => {
-                    return {where: { name: region },
-                    create: { name: region }}
-                }
-                ) },
+                regions: {
+                    connectOrCreate: newRegions.map((region:string) => {
+                        return {where: { name: region },
+                        create: { name: region }}
+                    }),
+                    set: newRegions.map((region:string) => {return {"name": region}})
+                },
                 itemType: { update: {name: body.itemType} },
                 moves: {
                     create: [
