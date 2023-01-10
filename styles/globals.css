@@ -2,8 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  background: radial-gradient(circle at center, #2e034f 0%, #270243 78%, #140220 100%);
+html, body {
   @apply h-screen w-screen min-h-[800px]
   m-0 p-0
 }
@@ -28,6 +27,35 @@ html {
 }
 
 @layer components {
+  .bg-animation-layer {
+    background: radial-gradient(circle at center, #2e034f 0%, #270243 78%, #140220 100%);
+    @apply h-screen w-screen min-h-[800px]
+    fixed pointer-events-none -z-50
+  }
+
+  .bg-sparkle {
+    clip-path: url(#sparkle-clip);
+    @apply w-3 h-3
+    absolute
+    opacity-0
+    bg-white animate-twinkle
+  }
+
+  .bg-circle-blur-container {
+    @apply absolute
+  }
+
+  .bg-circle-blur {
+    box-shadow: -1px -1px 100px 99px #ca6464;
+    transition-property: all;
+    transition: 3s;
+    @apply rounded-full
+    w-0 h-0
+    bg-[#ca6464]
+    opacity-0
+    animate-linger animate-pulse
+  }
+
   .form-label {
     @apply block
     text-gray-700 text-sm font-bold mb-2
@@ -102,7 +130,7 @@ html {
 
   .ooblets-title {
     text-shadow: 0px 2px 0px #f2e5ff, 0px 7px 0px #8150ff;
-    @apply text-7xl uppercase text-center mt-8 mb-6 animate-seesaw text-[#daaaff]
+    @apply text-7xl uppercase text-center pt-8 pb-6 animate-seesaw text-[#daaaff]
   }
 
   .ooblets-subtitle {
@@ -114,7 +142,7 @@ html {
   }
 
   .ooblet-list {
-    @apply flex flex-row my-5 flex-wrap h-[650px] overflow-auto pt-20
+    @apply flex flex-row my-5 flex-wrap h-[520px] overflow-auto pt-6 pb-6 justify-center
   }
 
   .container {
@@ -122,7 +150,11 @@ html {
   }
 
   .ooblet-card {
-    @apply w-60 min-h-[60] m-3 flex flex-col
+    @apply w-52 min-h-[52] m-3 mb-1 flex flex-col
+  }
+
+  .ooblet-card a {
+    @apply w-fit m-auto mt-0 mb-0
   }
 
   .ooblet-card-link {
@@ -131,10 +163,11 @@ html {
 
   .ooblet-card-display-container {
     @apply rounded-full 
-    w-40 h-40
+    w-32 h-32
     mx-auto my-3
     bg-[#410071]
     relative
+    text-[0px]
   }
 
   .ooblet-card-display-image {
