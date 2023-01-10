@@ -35,7 +35,7 @@ model Item {
 
 model Move {
   id Int @id @default(autoincrement())
-  name String @unique
+  name String
   desc String
   cost Int
   level Int
