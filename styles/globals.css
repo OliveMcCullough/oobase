@@ -142,7 +142,12 @@ html, body {
   }
 
   .ooblet-list {
+    scrollbar-width: none;
     @apply flex flex-row my-5 flex-wrap h-[520px] overflow-auto pt-6 pb-6
+  }
+
+  .ooblet-list::-webkit-scrollbar {
+    display: none;
   }
 
   .container {
