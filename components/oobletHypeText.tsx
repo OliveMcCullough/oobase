@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 
-
-
 export default function BackgroundAnimation() {
     const[hypeContent, setHypeContent] = useState<undefined | string>(undefined);
 
