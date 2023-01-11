@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client';
 import { GetStaticProps } from 'next';
+import Link from 'next/link';
 import Layout from '../components/layout';
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -47,21 +48,16 @@ export default function Home({
           <ul className="ooblet-list"> 
             {ooblets.map((ooblet) => (
               <li key={ooblet.id} className="ooblet-card">
-                <a>
+                <Link href={`/ooblet/${ooblet.name}`}>
                   <div className="ooblet-card-display-container">
                     <img 
                       className="ooblet-card-display-image" 
                       alt={ooblet.name} 
                       src={`/images/ooblets/${ooblet.name}_common.png`}
-                      onError={({ currentTarget }) => {
-                        currentTarget.onerror = null;
-                        console.log("hi");
-                        currentTarget.src="/images/ooblets/Dunno.png";
-                      }}
                     />  
                   </div>
                   <span className="ooblet-tag common-ooblet-name-tag"> {ooblet.name}  </span>
-                </a>
+                </Link>
                 {ooblet.regions.length > 0 &&
                   <>{ooblet.regions.map((region) => (
                     <a key={region.id}>
