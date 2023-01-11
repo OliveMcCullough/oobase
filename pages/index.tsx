@@ -68,7 +68,7 @@ export default function Home({
                 }
               </li>))} 
           </ul>}
-          <p className="ooblets-info"> WIP - Site by <a href="https://github.com/OliveMcCullough/">Olive McCullough</a> - <a href="https://ooblets.com/">Ooblet</a> and its characters by Glumberland - Fonts <a href="https://www.ffonts.net/Franxurter-Totally-Fat.font">Franxurter Totally Fat</a> and <a href="https://www.fontfabric.com/fonts/multicolore/">Multicolore</a> (not my own) </p>
+          <p className="ooblets-info"> WIP - Site by <a href="https://github.com/OliveMcCullough/">Olive McCullough</a> - <a href="https://ooblets.com/">Ooblets</a> and its characters by Glumberland - Fonts <a href="https://www.ffonts.net/Franxurter-Totally-Fat.font">Franxurter Totally Fat</a> and <a href="https://www.fontfabric.com/fonts/multicolore/">Multicolore</a> (not my own) </p>
         </div>
       </div>
     </Layout>
