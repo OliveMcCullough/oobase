@@ -22,6 +22,13 @@ export default function Layout({ children }: { children:React.ReactNode }) {
                 crossOrigin=""
                 type="font/woff2"
             />
+            <link
+                rel="preload"
+                href="/fonts/Multicolore.woff2"
+                as="font"
+                crossOrigin=""
+                type="font/woff2"
+            />
         </Head>
 
         <main>
