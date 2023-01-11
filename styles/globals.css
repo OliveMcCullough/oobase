@@ -16,12 +16,20 @@ html, body {
   font-display: swap;
 }
 
-
 @font-face {
   font-family: 'Franxurter Totally Fat';
   src: url('/fonts/FranxurterTotallyFat.woff2') format('woff2'),
       url('/fonts/FranxurterTotallyFat.woff') format('woff');
   font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Multicolore';
+  src: url('/fonts/Multicolore.woff2') format('woff2'),
+      url('/fonts/Multicolore.woff') format('woff');
+  font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
@@ -130,12 +138,18 @@ html, body {
 
   .ooblets-title {
     text-shadow: 0px 2px 0px #f2e5ff, 0px 7px 0px #8150ff;
-    @apply text-7xl uppercase text-center pt-8 pb-6 animate-seesaw text-[#daaaff]
+    @apply text-7xl uppercase text-center pt-8 pb-6 animate-seesaw-large text-[#daaaff]
+  }
+
+  .ooblets-hype-text {
+    text-shadow: 0px 2px 0px #ffd972, 0px 7px 0px #fa4c7b;
+    @apply text-8xl uppercase text-center pt-8 pb-6 animate-seesaw-reverse-large-fast text-[#ffb44f]
   }
 
   .ooblets-subtitle {
     @apply text-2xl text-center uppercase text-[#ff4e80]
   }
+
 
   .ooblets-style {
     @apply font-franxurter-totally-fat
@@ -146,19 +160,16 @@ html, body {
     @apply flex flex-row my-5 flex-wrap overflow-auto pt-6 pb-6 min-h-[200px]
   }
 
-  /* Let's get this party started */
   .ooblet-list::-webkit-scrollbar {
       width: 20px;
   }
    
-  /* Track */
   .ooblet-list::-webkit-scrollbar-track {
       background-color:#250d37;
       -webkit-border-radius: 8px;
       border-radius: 8px;
   }
    
-  /* Handle */
   .ooblet-list::-webkit-scrollbar-thumb {
       -webkit-border-radius: 8px;
       border-radius: 8px;
@@ -203,7 +214,43 @@ html, body {
     @apply text-center block m-auto text-xl uppercase font-franxurter-totally w-fit px-4 py-1 my-1 rounded-full bg-[#352c89] text-white
   }
 
-  .simplebar-scrollbar::before {
-    background-color: red !important;
+  .common-ooblet-name-tag {
+    @apply text-[#ff4e80]
+  }
+
+  .ooblets-presentation-display {
+    @apply m-auto my-16
+    flex flex-row justify-around
+    w-2/3
+  }
+
+  .ooblets-presentation-illustration-container {
+    @apply w-48 relative
+  }
+
+  .ooblets-presentation-illustration {
+    @apply w-full max-h-[150%] absolute bottom-0 object-contain
+  }
+
+  .ooblets-intro-title {
+    box-shadow: 0px 5px 0px #2f5f92;
+    @apply 
+    min-w-[350px] w-fit 
+    rounded-2xl 
+    mx-auto my-2 px-12
+    text-[#5869ec]
+    bg-[#c1e3e7]
+    animate-seesaw-medium-fast
+    font-multicolore text-4xl
+  }
+
+  .ooblets-intro-description {
+    @apply text-white bg-[rgba(70,40,113,0.7)]
+    max-w-[450px]
+    rounded-2xl
+    p-5 my-12
+    animate-seesaw-small-fast
+    font-franxurter-totally
+    text-lg
   }
 }
