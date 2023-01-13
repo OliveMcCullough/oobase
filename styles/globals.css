@@ -34,6 +34,54 @@ html, body {
   font-display: swap;
 }
 
+.move-theme-1 {
+  background-image: url("/images/move_themes/move_theme_1.png")
+}
+
+.move-theme-2 {
+  background-image: url("/images/move_themes/move_theme_2.png")
+}
+
+.move-theme-3 {
+  background-image: url("/images/move_themes/move_theme_3.png")
+}
+
+.move-theme-4 {
+  background-image: url("/images/move_themes/move_theme_4.png")
+}
+
+.move-theme-5 {
+  background-image: url("/images/move_themes/move_theme_5.png")
+}
+
+.move-theme-6 {
+  background-image: url("/images/move_themes/move_theme_6.png")
+}
+
+.move-theme-7 {
+  background-image: url("/images/move_themes/move_theme_7.png")
+}
+
+.move-theme-8 {
+  background-image: url("/images/move_themes/move_theme_8.png")
+}
+
+.move-theme-9 {
+  background-image: url("/images/move_themes/move_theme_9.png")
+}
+
+.move-theme-10 {
+  background-image: url("/images/move_themes/move_theme_10.png")
+}
+
+.move-theme-11 {
+  background-image: url("/images/move_themes/move_theme_11.png")
+}
+
+.move-theme-12 {
+  background-image: url("/images/move_themes/move_theme_12.png")
+}
+
 @layer components {
   .bg-animation-layer {
     background: radial-gradient(circle at center, #2e034f 0%, #270243 78%, #140220 100%);
@@ -220,12 +268,12 @@ html, body {
 
   .ooblets-presentation-display {
     @apply m-auto my-16
-    flex flex-row justify-around
-    w-2/3
+    flex flex-row justify-around flex-wrap
+    w-5/6
   }
 
   .ooblets-presentation-illustration-container {
-    @apply min-w-[150px] w-48 relative
+    @apply min-w-[150px] w-48 min-h-[150px] relative
   }
 
   .ooblets-presentation-illustration {
@@ -256,11 +304,69 @@ html, body {
   }
 
   .ooblets-moves-display {
-    @apply flex flex-row justify-around
+    @apply flex flex-row justify-around flex-wrap
   }
 
   .ooblets-move-card {
-    @apply w-[250px] h-[345px] bg-[#2e0646] rounded-2xl shadow-lg
+    @apply min-w-[250px] min-h-[345px]
+    relative 
+    bg-[#2e0646] 
+    rounded-[22px]
+    shadow-sm shadow-white
+    text-white
+  }
+
+  .ooblets-move-card-inner {
+    @apply absolute left-[10px] right-[10px] top-[10px] bottom-[10px] bg-[#5b0b6f] rounded-[11px]
+  }
+
+  .ooblets-move-card-cost-container {
+    @apply absolute 
+    w-[55px]
+    h-[55px]
+    rounded-full
+    top-[4px] left-[4px]
+    bg-[#5850ff]
+    border-[8px]
+    box-content
+    border-[#5b0b6f]
+    z-40
+    flex items-center justify-center
+    text-4xl
+  }
+
+  .ooblets-move-card-content-container {
+    @apply relative w-full h-full
+  }
+
+  .ooblets-move-card-content {
+    clip-path: polygon(0 70px, 70px 0, 214px 0, 214px 295px, 200px 309px, 15px 309px, 0 295px);
+    @apply
+    absolute left-[8px] right-[8px] top-[8px] bottom-[8px]
+    rounded-sm
+    overflow-hidden
+    flex flex-col
+  }
+
+  .ooblets-move-card-image {
+    @apply w-full min-h-[180px] bg-cover bg-[#010463]
+  }
+
+  .ooblets-move-card-info {
+    @apply bg-[#2e0646] h-full
+    flex flex-col
+  }
+
+  .ooblets-move-card-title {
+    @apply bg-[#8d2ccf] w-full min-h-[26px] 
+    uppercase text-[22px] leading-none rounded-b-md
+    flex align-middle justify-center
+  }
+
+  .ooblets-move-card-description {
+    @apply h-full
+    text-[22px] leading-[22px] text-center px-4 font-franxurter-totally
+    flex flex-col items-center justify-center
   }
 
   .ooblets-info {
