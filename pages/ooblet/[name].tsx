@@ -2,6 +2,8 @@ import { PrismaClient } from '@prisma/client';
 import Layout from '../../components/layout';
 import OobletHypeText from '../../components/oobletHypeText';
 import OobletItemPhrasing from '../../components/oobletItemPhrasing';
+import OobletMoveImage from '../../components/oobletMoveImage';
+import OobletMovesPhrasing from '../../components/oobletMovesPhrasing';
 
 export async function getStaticProps({ params }: { params: {name: string} }) {
     const prisma = new PrismaClient()
@@ -14,7 +16,8 @@ export async function getStaticProps({ params }: { params: {name: string} }) {
                 select: {
                     name: true,
                     desc: true,
-                    cost: true
+                    cost: true,
+                    level: true
                 }
             }, 
             regions: {
@@ -66,7 +69,8 @@ export default function OobletInfo({
         moves: [{
             name: string,
             desc: string,
-            cost: number
+            cost: number,
+            level: number
         }], 
         regions: [{
             name: string,
@@ -77,10 +81,6 @@ export default function OobletInfo({
         itemAmount: number
     }
 }) {
-    // Cute! Ahhhh! Who's that? Oh look! Woah.
-    // It's <Ooblet name>
-    // Description
-
     return (
         <Layout>
             <div> 
@@ -102,14 +102,32 @@ export default function OobletInfo({
                         </div>
                     </div>
                     <div>
-                        <h2 className="ooblets-subheader"> Can they dance? </h2>
-                        <h2 className="ooblets-subheader"> Got some moves! </h2>
-                        <h2 className="ooblets-subheader"> Schmovin like: </h2>
+                        <h2 className="ooblets-subheader"> <OobletMovesPhrasing/> </h2>
 
                         <div className="ooblets-moves-display">
-                            {oobletData.moves.map((move) => { return (
+                            {oobletData.moves.sort((a,b) => {
+                                if ( a.level < b.level ){
+                                return -1;
+                                }
+                                if ( a.level > b.level ){
+                                return 1;
+                                }
+                                return 0;
+                            })
+                            .map((move) => { return (
                                 <div className="ooblets-move-card">
-                                    <p> {move.cost} - {move.name} - {move.desc} </p>
+                                    <div className="ooblets-move-card-inner"> 
+                                        <div className="ooblets-move-card-cost-container"> <span>{move.cost}</span> </div> 
+                                        <div className="ooblets-move-card-content-container"> 
+                                            <div className="ooblets-move-card-content">
+                                                <OobletMoveImage/>
+                                                <div className="ooblets-move-card-info">
+                                                    <div className="ooblets-move-card-title"> <span>{move.name}</span> </div>
+                                                    <div className="ooblets-move-card-description"> <span>{move.desc}</span> </div> 
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             )})}
                         </div>
