@@ -1,11 +1,29 @@
 import { PrismaClient } from '@prisma/client';
-import { GetStaticProps } from 'next';
-import Layout from '../components/layout';
-import OobletsList from '../components/oobletsList';
+import Layout from '../../components/layout';
+import OobletsList from '../../components/oobletsList';
 
-export const getStaticProps: GetStaticProps = async () => {
+export async function getStaticPaths() {
+    const prisma = new PrismaClient()
+    const regions = await prisma.region.findMany({select: {
+      name: true,
+    }});
+    const paths = regions.map((region) => {
+        return {
+            params: {
+                region: region.name
+            }
+        }
+    })
+    return {
+        paths,
+        fallback: false
+    }
+}
+
+export async function getStaticProps({ params }: { params: {region: string} }) {
   const prisma = new PrismaClient()
-  const ooblets = await prisma.ooblet.findMany({select: {
+  const ooblets = await prisma.ooblet.findMany({where:{regions:{some:{name:params.region}}},
+    select: {
     id: true,
     name: true,
     desc: true,
