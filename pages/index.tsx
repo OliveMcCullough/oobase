@@ -1,7 +1,7 @@
 import { PrismaClient } from '@prisma/client';
 import { GetStaticProps } from 'next';
-import Layout from '../components/layout';
-import OobletsList from '../components/oobletsList';
+import Layout from '../components/Layout';
+import OobletsList from '../components/OobletsList';
 
 export const getStaticProps: GetStaticProps = async () => {
   const prisma = new PrismaClient()

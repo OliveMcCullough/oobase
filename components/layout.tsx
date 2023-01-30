@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import BackgroundAnimation from './backgroundAnimation'
+import BackgroundAnimation from './BackgroundAnimation'
 
 export default function Layout({ children }: { children:React.ReactNode }) {
     return (

@@ -1,9 +1,9 @@
 import { PrismaClient } from '@prisma/client';
-import Layout from '../../components/layout';
-import OobletHypeText from '../../components/oobletHypeText';
-import OobletItemPhrasing from '../../components/oobletItemPhrasing';
-import OobletMoveImage from '../../components/oobletMoveImage';
-import OobletMovesPhrasing from '../../components/oobletMovesPhrasing';
+import Layout from '../../components/Layout';
+import OobletHypeText from '../../components/OobletHypeText';
+import OobletItemPhrasing from '../../components/OobletItemPhrasing';
+import OobletMoveImage from '../../components/OobletMoveImage';
+import OobletMovesPhrasing from '../../components/OobletMovesPhrasing';
 
 export async function getStaticProps({ params }: { params: {name: string} }) {
     const prisma = new PrismaClient()

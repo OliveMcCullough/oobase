@@ -1,4 +1,4 @@
-import Layout from "../../../components/layout";
+import Layout from "../../../components/Layout";
 import Creatable, { useCreatable } from 'react-select/creatable';
 import { GetServerSideProps } from "next";
 import { PrismaClient } from "@prisma/client";

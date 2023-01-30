@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client';
-import Layout from '../../components/layout';
-import OobletsList from '../../components/oobletsList';
+import Layout from '../../components/Layout';
+import OobletsList from '../../components/OobletsList';
 
 export async function getStaticPaths() {
     const prisma = new PrismaClient()
